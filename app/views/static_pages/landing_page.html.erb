@@ -1,23 +1,28 @@
 <div class="container-fluid">
-<div class="carousel slide" data-ride="carousel" id="scooterCarousel">
+<div class="carousel-flex-con" data-ride="carousel" id="scooterCarousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+   <% @products.each_with_index do |product, i| %>
+     <li data-target='#carousel-example-generic' data-slide-to='<%= i %>' class=<%= ' active' if i == 0 %>></li>
+   <% end %>
   </ol>
 
-  <!-- Wrapper for slides -->
-   <div class="carousel-inner" role="listbox">
-	   <% @products.each do |product| %>
-	    <div class="item <%= "active" if product == @products.first %>">
-	      <%= image_tag(product.image_url) %>
-	      <div class="carousel-caption">
-	        <h3><%= product.name %></h3>
-	      </div>
-	    </div>
-	   <% end %>
-   </div>
+<!-- Wrapper for slides -->
+
+ <div class="carousel-inner" role="listbox">
+   <% @products.each do |product| %>
+
+   <div class="item<%= " active" if product == @products.first %>">
+     <%= image_tag(product.image_url) %>
+
+     <div class="carousel-caption">
+       <%= product.name %>
+     </div> <!-- end caption -->
+
+   </div><!-- end item -->
+  <% end %> <!-- end @product -->
+ </div> <!-- end inner -->
+
 
   <!-- Controls -->
   <a class="left carousel-control" href="#scooterCarousel" role="button" data-slide="prev">
@@ -29,4 +34,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<%= params[:example_key].to_i * 10 %> 
 </div>
