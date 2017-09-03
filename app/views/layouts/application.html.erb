@@ -25,13 +25,14 @@
   					<span class="icon-bar"></span>
   				</button>
   				<div class="navbar-brand">
-  					<a href="#">Microverse Scooters</a>
+  					<%= link_to "Microverse Scooters", "/" %>
   				</div>
   					<div class="navbar-collapse collapse">
   					<ul class="nav navbar-nav navbar-right">
-  						<li><a href="#about">About</a></li>
-  						<li><a href="#product">Products</a></li>
-  						<li><a href="#contact">Contact</a></li>
+  						<li><%= link_to "About", "/static_pages/about" %></li>
+  						<li><%= link_to "Product", "/products" %></li>
+              <li><%= link_to "Orders", "/orders" %></li>
+  						<li><%= link_to "Contact", "/static_pages/contact" %></li>
   					</ul>
   					</div>
   			</div>
