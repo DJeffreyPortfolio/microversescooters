@@ -1,2 +1,17 @@
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+<body>
+	<div class="container-fluid">
+		<div class="header">
+			<h2>Contacting Microverse Scooters</h2>
+		</div>
+		<div class="row">
+		<div class="col-md-6">
+			<p><span class="glyphicon glyphicon-phone"></span>: (802)535-7841</p>
+			<p><span class="glyphicon glyphicon-envelope"></span>: D_Jeffrey87@yahoo.com</p>
+		</div>
+		<div class="col-md-6">
+		<%= text_area_tag(:message, "Please put a message here for our sales team", size: "24x6") %>
+		<end>
+		</div>
+		</div>
+	</div>
+</body>
