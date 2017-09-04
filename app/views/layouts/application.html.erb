@@ -35,14 +35,16 @@
   						<li><%= link_to "Contact", "/static_pages/contact" %></li>
   					</ul>
   					</div>
-            <%= form_with(url:products_path, method: 'get') do |form| %>
-              <%= form.label :q, 'Search for:' %>
-              <%= form.text_field :q, id: 'q', value: params[:q] %>
-              <%= form.submit 'Search' %>
+            <div class="search-form pull-right">
+            <%= form_tag("/products", method: "get", class: "navbar-form navbar-right", role: "search") do%>
+              <%= text_field_tag(:q, class: "form-control", placeholder: "Search")%>
+              <%= submit_tag('Search', class: "btn btn-s btn-default-transparent") %>
             <% end %>
   			</div>
   		</div>
   	</nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
 
     <footer>
