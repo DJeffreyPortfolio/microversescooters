@@ -7,6 +7,7 @@
 	  <%= image_tag(@product.image_url, class: "img-responsive") %>
 	  <%= @product.colour %>
 	  <strong><%= @product.price %></strong>
+	  <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
 	</div>
 	</div>
 	<div class="row">
@@ -21,5 +22,7 @@
 	</div>
 </body>
 
+<%= render 'new_comment' %>
+<%= render 'comments' %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
