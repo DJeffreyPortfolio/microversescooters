@@ -3,5 +3,6 @@
 	<p><%= product.description %></p>
 	<%= image_tag(product.image_url, class: "img-responsive") %>
 	<%= product.colour %>
+	<%= link_to 'Show', product %>
 	<strong><%= product.price %></strong>
 </div>
