@@ -12,17 +12,11 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-		<%= @product.highest_rating_comment.try(:rating) %>
-		<%= @product.highest_rating_comment.try(:body) %>
+		<%= render 'new_comment' %>
 		</div>
-		<div class="col-md-6">
-		<%= @product.lowest_rating_comment.try(:rating) %>
-		<%= @product.lowest_rating_comment.try(:body) %>
+		<div class="col-md-6"><%= render 'comments' %>
 		</div>
 	</div>
 </body>
-
-<%= render 'new_comment' %>
-<%= render 'comments' %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
