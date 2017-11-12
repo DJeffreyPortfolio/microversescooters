@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<body>
+	<div class="row">
+	<div class="col-md-12">
+	  <h2><%= @product.name %></h2>
+	  <p><%= @product.description %></p>
+	  <%= image_tag(@product.image_url, class: "img-responsive") %>
+	  <%= @product.colour %>
+	  <strong><%= @product.price %></strong>
+	  <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+		<%= render 'new_comment' %>
+		</div>
+		<div class="col-md-6"><%= render 'comments' %>
+		</div>
+	</div>
+</body>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
