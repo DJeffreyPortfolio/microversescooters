@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 	has_many :comments, dependent: :destroy
+	has_many :orders
+	validates :name, presence: true
 
 	def self.search(search_term)
 		Product.where("name LIKE ?", "%#{search_term}%")
