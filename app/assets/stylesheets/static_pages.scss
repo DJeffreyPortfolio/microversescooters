@@ -1,9 +1,9 @@
 //Main Controller
 
 body {
-	background-color: #e6ffff;
+	background-color: #FFF;
 	position: relative;
-	padding-top: 74px;
+	padding-top: 100px;
 }
 
 .container-fluid {
@@ -18,13 +18,12 @@ h1 {
 //Navigation 
 
 .nav {
-	opacity: 0.6;
-	font-size: 1.3em;
+	font-size: 0.2 em;
 	transition: color 600ms;
 }
 
 .nav a {
-	color: #80aaff;
+	color: #000;
 	font-family: 'Nunito', sans-serif;
 	text-transform: uppercase;
 }
