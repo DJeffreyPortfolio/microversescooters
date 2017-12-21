@@ -6,7 +6,12 @@ class ProductsController < ApplicationController
   def index
     if params[:q]
       search_term = params[:q]
-      @products = Product.search(search_term)
+      if(Rails.env.production?)
+        #Using ilike for case insensitivity on postgres
+        @products = Product.where("name ilike ?", "%#{search_term}")
+      else
+        @products = Product.where("name LIKE ?", "%#{search_term}")
+      end
     else
       @products = Product.all
     end
@@ -76,6 +81,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :image_url, :colour, :price)
+      params.require(:product).permit(:name, :description, :image_url, :color, :price)
     end
 end
