@@ -5,7 +5,7 @@
 	  <h2><%= @product.name %></h2>
 	  <p><%= @product.description %></p>
 	  <%= image_tag(@product.image_url, class: "img-responsive") %>
-	  <%= @product.color %>
+	  <%= @product.colour %>
 	  <strong><%= @product.price %></strong>
 	  <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
 	</div>
