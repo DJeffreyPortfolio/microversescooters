@@ -6,6 +6,7 @@ class Ability
     can :read, :all
     if user.present?
     	can :manage, User, id: user.id
+    end
     if user.admin?
     	can :manage, :all
     end
