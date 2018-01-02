@@ -1,23 +1,41 @@
 <p id="notice"><%= notice %></p>
 <body>
+	<div class="container-fluid">
 	<div class="row">
-	<div class="col-md-12">
-	  <h2><%= @product.name %></h2>
-	  <p><%= @product.description %></p>
-	  <%= image_tag(@product.image_url, class: "img-responsive") %>
-	  <%= @product.colour %>
-	  <strong><%= @product.price %></strong>
-	  <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div> </p>
-	</div>
-	</div>
-	<div class="row">
+		<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i> Back'.html_safe, products_path %>
+		<div class="col-md-12">
+		  <h2><%= @product.name %></h2>
+		</div>
 		<div class="col-md-6">
-		<%= render 'new_comment' %>
+		  <%= image_tag(@product.image_url, class: "img-responsive") %>
+		  <p>
+			  <strong>Color:</strong>
+			  <%= @product.colour %>
+			</p>
+		  <p>
+		  	<strong>Price: $</strong>
+		  	<%= @product.price %>
+		  </p>
+			<p>
+				<strong>Description: </strong>
+				<%= @product.description %>
+			</p>
+		  <p>
+		  	<strong>Average Rating: </strong>
+		  		<div class="rated" data-score="<%= @product.average_rating %>"></div>
+		  </p>
+		  <%= form_with(url: '/payments/create') do |form| %>
+		  	<%= render partial: "shared/stripe_checkout_button" %>
+		  <% end %>
 		</div>
-		<div class="col-md-6"><%= render 'comments' %>
+		<div class="col-md-6">
+			<%= render 'new_comment' %>
+			<%= render 'comments' %>
 		</div>
+	</div>
 	</div>
 </body>
-<%= link_to 'Edit', edit_product_path(@product) %>
-<%= link_to 'Back', products_path %>
+<% if current_user && current_user.admin? %>
+	<%= link_to 'Edit', edit_product_path(@product) %>
+<% end %>
 <%= will_paginate @comments %>
