@@ -7,7 +7,7 @@
 		  <h2><%= @product.name %></h2>
 		</div>
 		<div class="col-md-6">
-		  <%= image_tag(@product.image_url, class: "img-responsive") %>
+		  <%= image_tag(@product.image_url, class: "img-responsive img-zoom", data_zoom_images:@product.image_url) %>
 		  <p>
 			  <strong>Color:</strong>
 			  <%= @product.colour %>
