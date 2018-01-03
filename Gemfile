@@ -51,6 +51,8 @@ gem 'stripe'
 gem 'brakeman', :require => false
 
 #Gem for memcaching
+gem 'kgio'
+gem 'memcachier'
 gem 'dalli'
 
 group :development, :test do
