@@ -15,8 +15,9 @@ var refreshRating = function(){
       return $(this).attr('data-score');
     }
   });
-}
-$(document).on('turbolinks:load ajaxSuccess', function(){
+};
+
+$(document).on('turbolinks:load', function(){
   refreshRating();
 
   //elevateZoom
