@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <body>
 	<div class="container-fluid">
-	<div class="row">
+	<div class="row" data-product-id="<%= @product.id %>">
 		<%= link_to '<i class="glyphicon glyphicon-arrow-left"></i> Back'.html_safe, products_path %>
 		<div class="col-md-12">
 		  <h2><%= @product.name %></h2>

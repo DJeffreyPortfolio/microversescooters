@@ -1,9 +1,16 @@
 class ProductChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "product_channel"
+    # stream_from "product_channel" (was old for the entire site)
   end
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+  end
+
+  def listen (data)
+  	stop_all_streams
+
+  	stream_for data['product_id']
+
   end
 end
