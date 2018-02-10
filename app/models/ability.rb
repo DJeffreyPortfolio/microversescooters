@@ -12,7 +12,7 @@ class Ability
 
       can :read, Product
 
-      :can :manage, User, id: user.id
+      can :manage, User, id: user.id
     end
   end
 end
