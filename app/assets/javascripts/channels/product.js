@@ -14,7 +14,7 @@ App.product = App.cable.subscriptions.create("ProductChannel", {
     $("#average-rating").attr('data-score', data.average-rating);
 
     refreshRating();
-  }
+  },
 
   listen_to_comments: function() {
   	return this.perform('listen', {
