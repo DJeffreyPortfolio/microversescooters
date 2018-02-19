@@ -7,7 +7,7 @@
 	<strong><%= product.price %></strong>
 
 	<%= link_to 'Show', product %>
-	<% if current_user && current_user.admin? %>
+	<% if current_user && current_user.admin %>
 		<%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
 	<% end %>
 	<% end %>
