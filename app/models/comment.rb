@@ -2,6 +2,8 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :product
 
+  scope :rating_desc, ->{order(rating: :desc)}
+
   validates :body, presence: true
   validates :user, presence: true
   validates :product, presence: true
@@ -9,5 +11,4 @@ class Comment < ApplicationRecord
 
   after_create_commit {CommentUpdateJob.perform_later(self, self.user)}
   
-  scope :rating_desc, ->{order(rating: :desc)}
 end
